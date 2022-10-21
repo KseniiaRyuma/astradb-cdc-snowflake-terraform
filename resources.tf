@@ -1,11 +1,11 @@
 resource "snowflake_database" "testdb" {
   provider = snowflake.sys_admin
-  name     = "ASTRA_DEMO2"
+  name     = "ASTRA_DEMO"
 }
 
 resource "snowflake_warehouse" "testwarehouse" {
   provider       = snowflake.sys_admin
-  name           = "ASTRA_DEMO2"
+  name           = "ASTRA_DEMO"
   warehouse_size = "xsmall"
 
   auto_suspend = 60
@@ -14,13 +14,13 @@ resource "snowflake_warehouse" "testwarehouse" {
 resource "snowflake_schema" "testschema" {
   provider   = snowflake.sys_admin
   database   = snowflake_database.testdb.name
-  name       = "ASTRA_DEMO2"
+  name       = "ASTRA_DEMO"
   is_managed = false
 }
 
 resource "astra_database" "dev" {
-  name           = "puppies"
-  keyspace       = "puppies"
+  name           = "demo"
+  keyspace       = "demo"
   cloud_provider = "aws"
   regions        = ["us-east-1"]
 }
@@ -49,8 +49,8 @@ resource "astra_table" "table1" {
 
 
 resource "astra_streaming_tenant" "streaming_tenant_snowflake" {
-  tenant_name        = "terraformtest"
-  topic              = "terraformtest"
+  tenant_name        = "tfdemo"
+  topic              = "tfdemo"
   region             = "us-east-1"
   cloud_provider     = "aws"
   user_email         = "kseniia.ryuma@datastax.com"
