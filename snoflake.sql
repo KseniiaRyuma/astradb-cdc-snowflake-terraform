@@ -2,7 +2,7 @@ CREATE USER "tf-snow" RSA_PUBLIC_KEY='RSA_PUBLIC_KEY_HERE' DEFAULT_ROLE=PUBLIC M
 
 -- SELECT current_account() as YOUR_ACCOUNT_LOCATOR, current_region() as YOUR_SNOWFLAKE_REGION_ID;
 
-alter user "tf-snow" set default_warehouse = astra_demo2;
+alter user "tf-snow" set default_warehouse = astra_demo;
 
 use role accountadmin;
 -- Create a Snowflake role with the privileges to work with the connector.
@@ -10,38 +10,30 @@ create role kafka_connector_role_1;
 create role astra_sink_role_1;
 
 -- Grant privileges on the database.
-grant usage on warehouse ASTRA_DEMO2 to role astra_sink_role_1;
-grant ownership on database ASTRA_DEMO2 to role astra_sink_role_1;
+grant usage on warehouse ASTRA_DEMO to role astra_sink_role_1;
+grant ownership on database ASTRA_DEMO to role astra_sink_role_1;
 
 use role astra_sink_role_1;
 
 show grants to role astra_sink_role_1;
 
 
--- REVOKE usage
--- on database ASTRA_DEMO2
--- from role accountadmin;
-
--- REVOKE usage
--- on schema ASTRA_DEMO2.astra_demo2
--- from role accountadmin;
-
 -- Grant privileges on the schema.
-grant ownership on schema ASTRA_DEMO2.astra_demo2 to role astra_sink_role_1;
-grant all privileges on schema ASTRA_DEMO2.astra_demo2 to role astra_sink_role_1;
-grant all on all tables in schema ASTRA_DEMO2.astra_demo2 to role astra_sink_role_1;
-grant all on future tables in schema ASTRA_DEMO2.astra_demo2 to role astra_sink_role_1;
+grant ownership on schema ASTRA_DEMO.astra_demo to role astra_sink_role_1;
+grant all privileges on schema ASTRA_DEMO.astra_demo to role astra_sink_role_1;
+grant all on all tables in schema ASTRA_DEMO.astra_demo to role astra_sink_role_1;
+grant all on future tables in schema ASTRA_DEMO.astra_demo to role astra_sink_role_1;
 
 
--- grant create table on schema ASTRA_DEMO2.astra_demo2 to role astra_sink_role_1;
--- grant create stage on schema ASTRA_DEMO2.astra_demo2 to role astra_sink_role_1;
--- grant create pipe on schema ASTRA_DEMO2.astra_demo2 to role astra_sink_role_1;
+-- grant create table on schema ASTRA_DEMO.astra_demo to role astra_sink_role_1;
+-- grant create stage on schema ASTRA_DEMO.astra_demo to role astra_sink_role_1;
+-- grant create pipe on schema ASTRA_DEMO.astra_demo to role astra_sink_role_1;
 
 
 
-grant all privileges on schema ASTRA_DEMO2.astra_demo2 to role sysadmin;
-grant all on all tables in schema ASTRA_DEMO2.astra_demo2 to role sysadmin;
-grant all on future tables in schema ASTRA_DEMO2.astra_demo2 to role sysadmin;
+grant all privileges on schema ASTRA_DEMO.astra_demo to role sysadmin;
+grant all on all tables in schema ASTRA_DEMO.astra_demo to role sysadmin;
+grant all on future tables in schema ASTRA_DEMO.astra_demo to role sysadmin;
 
 
 -- Grant the custom role to user.
@@ -59,7 +51,7 @@ show roles;
 
 
 use role astra_sink_role_1;
-use schema ASTRA_DEMO2.ASTRA_DEMO2;
+use schema ASTRA_DEMO.ASTRA_DEMO;
 
 
 --update with your own names for tables that got created:
