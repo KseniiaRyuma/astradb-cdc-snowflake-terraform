@@ -5,7 +5,7 @@ resource "snowflake_database" "testdb" {
 
 resource "snowflake_warehouse" "testwarehouse" {
   provider       = snowflake.sys_admin
-  name           = "ASTRA_DEMO"
+  name           = "ASTRA_DEMO_WH"
   warehouse_size = "xsmall"
 
   auto_suspend = 60
@@ -49,8 +49,8 @@ resource "astra_table" "table1" {
 
 
 resource "astra_streaming_tenant" "streaming_tenant_snowflake" {
-  tenant_name        = "tfdemo"
-  topic              = "tfdemo"
+  tenant_name        = "tf-demo"
+  topic              = "tf-demo"
   region             = "us-east-1"
   cloud_provider     = "aws"
   user_email         = "kseniia.ryuma@datastax.com"
