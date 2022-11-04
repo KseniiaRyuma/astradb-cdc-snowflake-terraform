@@ -8,7 +8,7 @@ resource "snowflake_warehouse" "testwh" {
   name           = "ASTRA_WH"
   warehouse_size = "XSMALL"
 
-  auto_suspend = 60
+#   auto_suspend = 60
 }
 
 resource "snowflake_schema" "testschema" {
