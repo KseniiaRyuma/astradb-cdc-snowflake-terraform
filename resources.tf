@@ -7,8 +7,9 @@ resource "snowflake_warehouse" "testwh" {
   provider       = snowflake.sys_admin
   name           = "ASTRA_WH"
   warehouse_size = "XSMALL"
+  enable_query_acceleration = false
 
-#   auto_suspend = 60
+  auto_suspend = 60
 }
 
 resource "snowflake_schema" "testschema" {
