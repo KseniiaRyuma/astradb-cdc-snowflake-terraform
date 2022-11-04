@@ -50,8 +50,8 @@ resource "astra_table" "table1" {
 
 
 resource "astra_streaming_tenant" "streaming_tenant_snowflake" {
-  tenant_name        = "tf-demo"
-  topic              = "tf-demo"
+  tenant_name        = "tfdemo"
+  topic              = "tfdemo"
   region             = "us-east-1"
   cloud_provider     = "aws"
   user_email         = "kseniia.ryuma@datastax.com"
