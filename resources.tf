@@ -5,8 +5,8 @@ resource "snowflake_database" "testdb" {
 
 resource "snowflake_warehouse" "testwh" {
   provider       = snowflake.sys_admin
-  name           = "ASTRA_DEMO"
-  warehouse_size = "small"
+  name           = "ASTRA_WH"
+  warehouse_size = "XSMALL"
 
   auto_suspend = 60
 }
