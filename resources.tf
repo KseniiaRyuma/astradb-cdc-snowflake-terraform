@@ -20,8 +20,8 @@ resource "snowflake_schema" "testschema" {
 }
 
 resource "astra_database" "dev" {
-  name           = "tfdemo"
-  keyspace       = "tfdemo"
+  name           = "demo"
+  keyspace       = "demo"
   cloud_provider = "aws"
   regions        = ["us-east-1"]
 }
