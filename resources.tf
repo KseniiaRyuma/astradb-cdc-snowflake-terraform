@@ -3,9 +3,9 @@ resource "snowflake_database" "testdb" {
   name     = "ASTRA_DEMO"
 }
 
-resource "snowflake_warehouse" "testwh" {
+resource "snowflake_warehouse" "testwarehouse" {
   provider       = snowflake.sys_admin
-  name           = "ASTRA_WH"
+  name           = "astra_demowh"
   warehouse_size = "XSMALL"
   enable_query_acceleration = false
 
