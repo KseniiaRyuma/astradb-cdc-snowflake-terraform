@@ -3,14 +3,14 @@ resource "snowflake_database" "testdb" {
   name     = "ASTRA_DEMO"
 }
 
-resource "snowflake_warehouse" "testwarehouse" {
-  provider       = snowflake.sys_admin
-  name           = "astra_demowh"
-  warehouse_size = "XSMALL"
-  enable_query_acceleration = false
+# resource "snowflake_warehouse" "testwarehouse" {
+#   provider       = snowflake.sys_admin
+#   name           = "ASTRA_DEMO"
+#   warehouse_size = "XSMALL"
+#   enable_query_acceleration = false
 
-  auto_suspend = 60
-}
+#   auto_suspend = 60
+# }
 
 resource "snowflake_schema" "testschema" {
   provider   = snowflake.sys_admin
